@@ -98,20 +98,21 @@
         <h2 id="countdown" class="text-warning"></h2>
     </div>
 
-    <button id="playAudio" class="btn btn-love">🎵 Escuchar música</button>
+    <audio id="audio" autoplay loop muted>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
 
-    <audio id="audio" loop>
-      <source src="audio/music.mp3" type="audio/mp3">
-    </audio>
+<script>
+  const audio = document.getElementById("audio");
+  // Quita el mute después de un pequeño retraso
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      audio.muted = false;
+      audio.play().catch(() => console.log("El autoplay fue bloqueado"));
+    }, 500); // 0.5 segundos después de cargar
+  });
+</script>
 
-    <script>
-      const audio = document.getElementById("audio");
-      const btn = document.getElementById("playAudio");
-
-      btn.addEventListener("click", () => {
-        audio.play();
-      });
-    </script>
 
 
     
