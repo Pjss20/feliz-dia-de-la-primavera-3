@@ -10,21 +10,35 @@
 </head>
 
 <body class="text-center">
+
     <!-- Botón -->
   <button id="playAudio">🎵 Escuchar música</button>
+  <p id="songName" style="margin-top:20px; font-size:20px;"></p>
 
   <!-- Audio -->
   <audio id="audio">
-    <source src="audio/music.mp3" type="audio/mp3">
+    <source src="music.mp3" type="audio/mp3">
     Tu navegador no soporta audio.
   </audio>
 
   <script>
     const audio = document.getElementById("audio");
     const btn = document.getElementById("playAudio");
+    const songName = document.getElementById("songName");
+    let isPlaying = false;
 
     btn.addEventListener("click", () => {
-      audio.play();
+      if (!isPlaying) {
+        audio.play();
+        songName.textContent = "Here Comes the Sun 🌞";
+        btn.textContent = "⏸️ Pausar música";
+        isPlaying = true;
+      } else {
+        audio.pause();
+        songName.textContent = "";
+        btn.textContent = "🎵 Escuchar música";
+        isPlaying = false;
+      }
     });
   </script>
 
@@ -121,6 +135,7 @@
 
 
 </html>
+
 
 
 
