@@ -98,12 +98,20 @@
         <h2 id="countdown" class="text-warning"></h2>
     </div>
 
-    <!-- 🎶 Música de fondo -->
-    <audio autoplay loop>
-        <source src="audio/music.mp3" type="audio/mp3">
-        <source src="audio/music.ogg" type="audio/ogg">
-        Tu navegador no soporta audio.
-    </audio>
+    <button id="playAudio" class="btn btn-love">🎵 Escuchar música</button>
+
+<audio id="audio" loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  const audio = document.getElementById("audio");
+  const btn = document.getElementById("playAudio");
+
+  btn.addEventListener("click", () => {
+    audio.play();
+  });
+</script>
 
 
     
@@ -113,6 +121,7 @@
 
 
 </html>
+
 
 
 
