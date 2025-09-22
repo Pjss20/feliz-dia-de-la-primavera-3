@@ -10,33 +10,30 @@
 </head>
 
 <body class="text-center">
-    <!-- Botón de respaldo para reproducir la música -->
-<button id="playAudio" class="btn btn-warning my-3">🎵 Escuchar música</button>
+    <!-- Botón de respaldo -->
+  <button id="playAudio" class="btn btn-warning btn-lg my-3">🎵 Escuchar música</button>
 
-<!-- Audio -->
-<audio id="audio" autoplay loop muted>
-  <source src="music.mp3" type="audio/mp3">
-  Tu navegador no soporta audio.
-</audio>
+  <!-- Audio -->
+  <audio id="audio" autoplay loop muted>
+    <source src="music.mp3" type="audio/mp3">
+    Tu navegador no soporta audio.
+  </audio>
 
-<script>
-  const audio = document.getElementById("audio");
-  const btn = document.getElementById("playAudio");
+  <script>
+    const audio = document.getElementById("audio");
+    const btn = document.getElementById("playAudio");
 
-  // Intentar reproducir automáticamente al cargar la página
-  window.addEventListener("load", () => {
-    audio.muted = false; // quitar el mute
-    audio.play().catch(() => {
-      console.log("Autoplay bloqueado por el navegador");
+    // Intentar autoplay
+    window.addEventListener("load", () => {
+      audio.muted = false;
+      audio.play().catch(() => console.log("Autoplay bloqueado"));
     });
-  });
 
-  // Botón de respaldo
-  btn.addEventListener("click", () => {
-    audio.play();
-  });
-</script>
-
+    // Botón de respaldo
+    btn.addEventListener("click", () => {
+      audio.play();
+    });
+  </script>
 
     
     <!-- 🌻 Sección principal -->
@@ -131,6 +128,7 @@
 
 
 </html>
+
 
 
 
