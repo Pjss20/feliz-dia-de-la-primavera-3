@@ -10,20 +10,33 @@
 </head>
 
 <body class="text-center">
-     <audio id="audio" autoplay loop muted>
-      <source src="audio/music.mp3" type="audio/mp3">
-    </audio>
-    
-    <script>
-      const audio = document.getElementById("audio");
-      // Quita el mute después de un pequeño retraso
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          audio.muted = false;
-          audio.play().catch(() => console.log("El autoplay fue bloqueado"));
-        }, 500); // 0.5 segundos después de cargar
-      });
-    </script>
+    <!-- Botón de respaldo para reproducir la música -->
+<button id="playAudio" class="btn btn-warning my-3">🎵 Escuchar música</button>
+
+<!-- Audio -->
+<audio id="audio" autoplay loop muted>
+  <source src="music.mp3" type="audio/mp3">
+  Tu navegador no soporta audio.
+</audio>
+
+<script>
+  const audio = document.getElementById("audio");
+  const btn = document.getElementById("playAudio");
+
+  // Intentar reproducir automáticamente al cargar la página
+  window.addEventListener("load", () => {
+    audio.muted = false; // quitar el mute
+    audio.play().catch(() => {
+      console.log("Autoplay bloqueado por el navegador");
+    });
+  });
+
+  // Botón de respaldo
+  btn.addEventListener("click", () => {
+    audio.play();
+  });
+</script>
+
 
     
     <!-- 🌻 Sección principal -->
@@ -118,6 +131,7 @@
 
 
 </html>
+
 
 
 
