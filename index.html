@@ -10,12 +10,12 @@
 </head>
 
 <body class="text-center">
-    <!-- Botón de respaldo -->
-  <button id="playAudio" class="btn btn-warning btn-lg my-3">🎵 Escuchar música</button>
+    <!-- Botón -->
+  <button id="playAudio">🎵 Escuchar música</button>
 
   <!-- Audio -->
-  <audio id="audio" autoplay loop muted>
-    <source src="audio/music.mp3" type="audio/mp3">
+  <audio id="audio">
+    <source src="music.mp3" type="audio/mp3">
     Tu navegador no soporta audio.
   </audio>
 
@@ -23,13 +23,6 @@
     const audio = document.getElementById("audio");
     const btn = document.getElementById("playAudio");
 
-    // Intentar autoplay
-    window.addEventListener("load", () => {
-      audio.muted = false;
-      audio.play().catch(() => console.log("Autoplay bloqueado"));
-    });
-
-    // Botón de respaldo
     btn.addEventListener("click", () => {
       audio.play();
     });
@@ -128,6 +121,7 @@
 
 
 </html>
+
 
 
 
